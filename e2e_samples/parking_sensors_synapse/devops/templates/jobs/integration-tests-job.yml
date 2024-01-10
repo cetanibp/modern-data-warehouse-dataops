@@ -10,6 +10,7 @@ jobs:
   steps:
   - script: |
       curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+      sudo apt-get remove libodbc2 libodbcinst2 unixodbc-common
       sudo bash -c "curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list"
       sudo apt-get update
       sudo ACCEPT_EULA=Y apt-get -y install msodbcsql17 unixodbc-dev
